@@ -2,14 +2,8 @@ import { IResolvers } from 'graphql-tools';
 
 const query: IResolvers = {
     Query: {
-        hello(): string {
-            return 'Hello world!!';
-        },
-        helloWithName(_: void, args): string {
-            return `Hello ${args.name}!!`;
-        },
-        helloToGraphQLCourse(): string {
-            return 'Hello to GraphQL Course!!';
+        seasonList: async (_:void, __: any, {dataSources}) => {
+            return await dataSources.seasons.getSeasons().then((data: any) => data.MRData.SeasonTable.Seasons);
         }
     }
 };

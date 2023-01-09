@@ -4,4 +4,10 @@ export class SeasonData extends F1 {
     constructor() {
         super();
     }
+
+    async getSeasons() {
+        return await this.get("seasons.json?limit=80", {
+            cacheOption: { ttl: 60 }
+        })
+    }
 }
