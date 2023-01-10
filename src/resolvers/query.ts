@@ -13,6 +13,10 @@ const query: IResolvers = {
         raceSelect: async (_: void, { year, round }, { dataSources }) => {
             return await dataSources.races.getYearRound(year, round)
                 .then((data: any) => data.MRData.RaceTable.Races[0]);
+        },
+        historyDrivers: async (_: void, __: any, { dataSources }) => {
+            return await dataSources.drivers.getDrivers()
+                .then((data: any) => data.MRData.DriverTable.Drivers);
         }
     }
 };
