@@ -6,8 +6,10 @@ export class DriversData extends F1 {
         super();
     }
 
-    async getDrivers() {
-        return await this.get("drivers.json?limit=1000", {
+    async getDrivers(pageElements: number = 1000, page: number = 1) {
+        const offset: Number =  pageElements * (page - 1);
+
+        return await this.get(`drivers.json?limit=${pageElements}&offset=${offset}`, {
             cacheOption: { ttl: 60 }
         });
     }
