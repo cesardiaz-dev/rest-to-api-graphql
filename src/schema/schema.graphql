@@ -1,15 +1,18 @@
 type Query {
+    "Listado de temporadas"
     seasonList: [Season!]!
+    "Carreras realizadas en cada temporada"
     racesByYear(year: String!): [Race!]!
+    "Carrera seleccionada por año y numero"
     raceSelect(year: String!, round: Int!): Race
+    "Listado de pilotos de toda la historia"
     historyDrivers(pageElements: Int, page: Int): [Driver!]!
+    "Listado de pilotos de una temporada"
     driversByYear(year: String!): [Driver!]!
+    "Listado de pilotos de una carrera en una temporada"
     driversByYearAndRound(year: String!, round: Int!): [Driver!]!
+    "Información de piloto a partir de su ID"
     driverById(id: String!): Driver
-}
-
-type Mutation {
-    add(value: String!): [String]
 }
 
 type Season {
