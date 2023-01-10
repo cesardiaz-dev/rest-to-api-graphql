@@ -30,4 +30,11 @@ export class DriversData extends F1 {
             cacheOption: { ttl: 60 }
         });
     }
+
+    async getDriverById(id: String) {
+
+        return await this.get(`drivers/${id}.json`, {
+            cacheOption: { ttl: 60 }
+        });
+    }
 }
