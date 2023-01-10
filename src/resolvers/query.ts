@@ -9,6 +9,10 @@ const query: IResolvers = {
         racesByYear: async (_: void, { year }, { dataSources }) => {
             return await dataSources.races.getRacesByYear(year)
                 .then((data: any) => data.MRData.RaceTable.Races);
+        },
+        raceSelect: async (_: void, { year, round }, { dataSources }) => {
+            return await dataSources.races.getYearRound(year, round)
+                .then((data: any) => data.MRData.RaceTable.Races[0]);
         }
     }
 };
