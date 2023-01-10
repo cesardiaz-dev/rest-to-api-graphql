@@ -14,13 +14,13 @@ export class DriversData extends F1 {
         });
     }
 
-    // async getRacesByYear(year: String) {
-    //     year = checkYear(year);
+    async getDriversByYear(year: String) {
+        year = checkYear(year);
 
-    //     return await this.get(`${year}.json`, {
-    //         cacheOption: { ttl: 60 }
-    //     });
-    // }
+        return await this.get(`${year}/drivers.json`, {
+            cacheOption: { ttl: 60 }
+        });
+    }
 
     // async getYearRound(year: String, round: Number) {
     //     year = checkYear(year);
