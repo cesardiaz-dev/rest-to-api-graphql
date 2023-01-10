@@ -22,12 +22,12 @@ export class DriversData extends F1 {
         });
     }
 
-    // async getYearRound(year: String, round: Number) {
-    //     year = checkYear(year);
-    //     round = checkRound(round);
+    async getDriversByYearAndRound(year: String, round: Number) {
+        year = checkYear(year);
+        round = checkRound(round);
 
-    //     return await this.get(`${year}/${round}.json`, {
-    //         cacheOption: { ttl: 60 }
-    //     });
-    // }
+        return await this.get(`${year}/${round}/drivers.json`, {
+            cacheOption: { ttl: 60 }
+        });
+    }
 }
