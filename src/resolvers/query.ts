@@ -29,6 +29,10 @@ const query: IResolvers = {
         driverById: async (_: void, { id }, { dataSources }) => {
             return await dataSources.drivers.getDriverById(id)
                 .then((data: any) => data.MRData.DriverTable.Drivers[0]);
+        },
+        seasonDriverRanking: async (_: void, { year }, { dataSources }) => {
+            return await dataSources.drivers.getSeasonDriverRanking(year)
+                .then((data: any) => data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
         }
     }
 };
