@@ -10,8 +10,14 @@ const checkYear = (year: String) => {
 
 const checkRound = (round: Number) => (round >= 100) ? 1 : round;
 
+const paginationOptions = (pageElements: number, page: number) => {
+    const offset: Number =  pageElements * (page - 1);
+    return `limit=${pageElements}&offset=${offset}`
+};
+
 export {
     getWikipediaMobileUrl,
     checkYear,
-    checkRound
+    checkRound,
+    paginationOptions
 }
